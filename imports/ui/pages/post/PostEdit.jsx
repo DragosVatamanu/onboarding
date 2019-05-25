@@ -22,11 +22,11 @@ class PostEdit extends React.Component {
     })
   }
 
-  // componentDidUpdate() {
-  //   if(Meteor.user() == null) {
-  //     FlowRouter.go('home');
-  //   }
-  // }
+  componentDidUpdate() {
+    if(Meteor.user() == null) {
+      FlowRouter.go('home');
+    }
+  }
 
   onSubmit = (data) => {
     Meteor.call('post.edit', this.postId, data, (err) => {
