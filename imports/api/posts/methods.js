@@ -4,7 +4,7 @@ import Security from '../security';
 
 Meteor.methods({
     'post.create'(data) {
-        Security.checkLoggedin(this.userId);
+        Security.checkLoggedIn(this.userId);
         return Posts.insert(data);
     },
     'post.get'(_id) {

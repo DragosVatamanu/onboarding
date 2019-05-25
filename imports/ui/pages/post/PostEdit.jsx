@@ -10,7 +10,6 @@ class PostEdit extends React.Component {
     super();
     this.postId = FlowRouter.current().params._id;
     this.state = {
-      loading: true,
       post: null
     }
   }
@@ -18,11 +17,16 @@ class PostEdit extends React.Component {
   componentDidMount() {
     Meteor.call('post.get', this.postId, (err, post) => {
       this.setState({
-        loading: false,
         post
       })
     })
   }
+
+  // componentDidUpdate() {
+  //   if(Meteor.user() == null) {
+  //     FlowRouter.go('home');
+  //   }
+  // }
 
   onSubmit = (data) => {
     Meteor.call('post.edit', this.postId, data, (err) => {
@@ -33,9 +37,9 @@ class PostEdit extends React.Component {
   }
 
   render() {
-    const {loading, post} = this.state;
+    const {post} = this.state;
 
-    if (loading) {
+    if (!post) {
       return (<div>Loading...</div>);
     }
 
