@@ -6,6 +6,7 @@ import Register from '../ui/pages/user/Register';
 import PostCreate from '../ui/pages/post/PostCreate';
 import PostList from '../ui/pages/post/PostList';
 import PostEdit from '../ui/pages/post/PostEdit';
+import CommentView from '../ui/pages/comment/CommentView';
 
 route('/', Home, {}, {
     name: 'home'
@@ -23,8 +24,8 @@ route('/', Home, {}, {
     name: 'post.list'
   });
   route('/post/edit/:_id', PostEdit, {}, {
-    name:'post.edit'
+    name: 'post.edit'
   });
-  // route('/comments/:postId', CommentView, {}, {
-  //   name:'comments'
-  // });
+  route('/comments/:postId', CommentView, {}, {
+    name:'comments'
+  });
