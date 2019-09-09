@@ -21,6 +21,7 @@ class Register extends React.Component {
                 alert(err.reason);
             }
         })
+        window.location.reload(false); 
     };
 
     render() {

@@ -12,6 +12,7 @@ class PostCreate extends React.Component {
       Meteor.call('post.create', data, (err) => {
           if (!err) {
               FlowRouter.go('post.list');
+              console.log(data);
           }
           else {
               alert(err.reason);
